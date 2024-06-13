@@ -1,16 +1,18 @@
 // src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider, } from './context/AuthContext';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import LandingPage from './Landing/Suru';
 import SignupPage from './Signup/Signup';
 import LoginPage from './Login/Login';
-import Navbar from './Navbar/Nav';
 import Contacts from './Navbar/Contact';
 import AboutUs from './Navbar/About';
 import Feedback from './Navbar/Feedback';
-import HomePage from './components/Homepage';
+import HomePage from './components/HomePage';
 import Watchlist from './components/Watchlist';
 import Trending from './components/Trending';
+import Footer from './Footer/Footer'; // Import the Footer component
+import './index.css'; // Ensure correct path to your CSS file
 
 const App = () => {
   return (
@@ -18,21 +20,18 @@ const App = () => {
       <Router>
         <Main />
       </Router>
-  
+    </AuthProvider>
   );
 };
 
 const Main = () => {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
-  const hideNavbar = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
-    <div className="relative min-h-screen pl-48 pb-16"> {/* Add padding-left for navbar and padding-bottom for footer */}
-      {!hideNavbar && <Navbar />}
-      <div className="ml-48 mt-16"> {/* Adjust content margin to avoid overlap with the fixed navbar */}
-        <Routes>  
-           </AuthProvider>
+    <div className="relative min-h-screen flex flex-col"> {/* Adjust styles as needed */}
+      <div className="flex-grow mt-16"> {/* Adjust content margin to avoid overlap with the fixed navbar */}
+        <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -44,7 +43,7 @@ const Main = () => {
           <Route path="/trending" element={isAuthenticated ? <Trending /> : <Navigate to="/login" />} />
         </Routes>
       </div>
-      {/* <Footer />  */}
+      <Footer /> {/* Add Footer component here */}
     </div>
   );
 };

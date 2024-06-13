@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import backgroundImage from '../images/bgmain.jpg'; // Make sure to update the path accordingly
 
 const Signup = () => {
@@ -28,6 +29,11 @@ const Signup = () => {
             className="w-full p-2 rounded bg-gray-800 bg-opacity-50 text-white"
           />
           <input 
+            type="username" 
+            placeholder="Username" 
+            className="w-full p-2 rounded bg-gray-800 bg-opacity-50 text-white"
+          />
+          <input 
             type="password" 
             placeholder="Password" 
             className="w-full p-2 rounded bg-gray-800 bg-opacity-50 text-white"
@@ -43,6 +49,10 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          <div className="flex justify-center space-x-4 mt-4">
+            <Link to="/login" className="text-white text-lg bg-black p-2 rounded-sm w-1/2 text-center">Already have an account</Link>
+        
+          </div>
         </form>
       </div>
     </div>

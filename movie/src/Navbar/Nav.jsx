@@ -1,8 +1,7 @@
 // src/Navbar/Nav.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
+
 
 const Navbar = () => {
   return (
@@ -18,7 +17,7 @@ const Navbar = () => {
       <div className="h-16"></div>
 
       <div className="fixed bottom-0 left-0 w-full bg-gray-900 bg-opacity-75 p-4">
-        <Swiper
+        {/* <Swiper
           spaceBetween={50}
           slidesPerView={3}
           loop={true}
@@ -31,7 +30,7 @@ const Navbar = () => {
           <SwiperSlide><Link to="/contacts"><img src="image2.jpg" alt="Slide 2" /></Link></SwiperSlide>
           <SwiperSlide><Link to="/about-us"><img src="image3.jpg" alt="Slide 3" /></Link></SwiperSlide>
           <SwiperSlide><Link to="/feedback"><img src="image4.jpg" alt="Slide 4" /></Link></SwiperSlide>
-        </Swiper>
+        </Swiper> */}
       </div>
     </div>
   );
