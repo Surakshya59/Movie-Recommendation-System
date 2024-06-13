@@ -38,12 +38,12 @@ const Main = () => {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/home" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
-          <Route path="/watchlist" element={isAuthenticated ? <Watchlist /> : <Navigate to="/login" />} />
-          <Route path="/trending" element={isAuthenticated ? <Trending /> : <Navigate to="/login" />} />
+          <Route path="/home" element={<HomePage /> } />
+          <Route path="/watchlist" element={ <Watchlist />} />
+          <Route path="/trending" element={ <Trending />} />
         </Routes>
       </div>
-      <Footer /> {/* Add Footer component here */}
+      <Footer /> 
     </div>
   );
 };
