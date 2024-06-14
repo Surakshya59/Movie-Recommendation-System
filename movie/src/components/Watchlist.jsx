@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import backgroundImage from '../images/bgmain.jpg';
 import { Link } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 const Watchlist = () => {
   const [watchlist, setWatchlist] = useState([
