@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-<<<<<<< HEAD
 import axios from 'axios';
 
 
@@ -21,16 +20,6 @@ const LoginPage = () => {
   // const [success, setSuccess] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
-=======
-import alert from '../components/Alert/Alert'
-
-const LoginPage = () => {
-  const [email, setusername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const navigate = useNavigate();
->>>>>>> 3d27bf397809a14b2aa2fafa084b50b8821afbb5
 
   const handleCloseAlert = () => {
     setError('');
@@ -39,21 +28,12 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     // setError('');
     // setSuccess('');
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/login/', {
         username,
-=======
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/account/user/login', {
-        email,
->>>>>>> 3d27bf397809a14b2aa2fafa084b50b8821afbb5
         password,
       });
 
@@ -61,7 +41,6 @@ const LoginPage = () => {
 
       if (response.status === 200 ) {
         localStorage.setItem('token', response.data.token);
-<<<<<<< HEAD
         // window.dispatchEvent(new Event('loginStateChanged'));
        
         // setSuccess('Login successful!');
@@ -81,27 +60,6 @@ const LoginPage = () => {
   
 
 
-=======
-        window.dispatchEvent(new Event('loginStateChanged'));
-        setSuccess('Login successful!');
-        setTimeout(() => {
-          navigate('/');
-        }, 1000);
-      } else {
-        console.error('Unexpected response:', response);
-        setError('Login failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      if (error.response) {
-        console.error('Error response data:', error.response.data);
-        setError(error.response.data.detail || 'Login failed. Please try again.');
-      } else {
-        setError('Login failed. Please try again.');
-      }
-    }
-  };
->>>>>>> 3d27bf397809a14b2aa2fafa084b50b8821afbb5
 
   return (
     <div style={backgroundImageStyle} className="min-h-screen flex items-center justify-center text-white">

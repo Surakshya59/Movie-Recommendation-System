@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backgroundImage from '../images/bgmain.jpg';
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/Sidebar';
 
 const AboutUs = () => {
   const backgroundStyle = {

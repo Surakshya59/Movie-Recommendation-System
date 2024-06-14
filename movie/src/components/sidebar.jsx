@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const sidebar = () => {
   return (
     <div>
-       <aside className="h-screen fixed top-0 left-0 w-60 bg-gray-900 p-6 flex flex-col justify-between">
+       <aside className="h-screen fixed top-0 left-0 w-60 bg-gray-900 p-5 flex flex-col justify-between">
        <div className='flex flex-col gap-4 '>
        <h1 className="text-red-900 font-bold text-4xl ">MRS</h1>
             <nav>

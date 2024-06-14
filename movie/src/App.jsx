@@ -8,7 +8,7 @@ import LoginPage from './Login/Login';
 import Contacts from './Navbar/Contact';
 import AboutUs from './Navbar/About';
 import Feedback from './Navbar/Feedback';
-import HomePage from './components/HomePage';
+import HomePage from './components/Homepage';
 import Watchlist from './components/Watchlist';
 import Trending from './components/Trending';
 import Footer from './Footer/Footer'; // Import the Footer component
