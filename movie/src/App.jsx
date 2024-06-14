@@ -30,7 +30,7 @@ const Main = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col"> {/* Adjust styles as needed */}
-      <div className="flex-grow mt-16"> {/* Adjust content margin to avoid overlap with the fixed navbar */}
+      <div className="flex-grow"> {/* Adjust content margin to avoid overlap with the fixed navbar */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignupPage />} />
