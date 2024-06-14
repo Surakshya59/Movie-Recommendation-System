@@ -8,7 +8,7 @@ const MovieListpage = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Adjusted slidesToShow for responsiveness
+    slidesToShow: 3, // Adjusted slidesToShow for responsiveness
     slidesToScroll: 1,
     nextArrow: <div className="text-black">Next</div>,
     prevArrow: <div className="text-black">Prev</div>,
@@ -16,13 +16,13 @@ const MovieListpage = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         }
       }
     ]

@@ -50,6 +50,7 @@ const LoginPage = () => {
         localStorage.setItem('token', response.data.token);
         window.dispatchEvent(new Event('loginStateChanged'));
         setSuccess('Login successful!');
+        login();
         setTimeout(() => {
           navigate('/');
         }, 1000);
