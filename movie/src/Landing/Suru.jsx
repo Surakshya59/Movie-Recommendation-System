@@ -5,53 +5,55 @@ const LandingPage = () => {
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'repeat',
+    backgroundPosition:'top fixed',
+    backgroundRepeat: 'no-repeat',
     minHeight: '100vh',
   };
 
   return (
     <>
-      <div style={backgroundStyle} className="min-h-screen flex flex-col">
-        <aside className="h-screen fixed top-left-0 w-60 bg-gray-900  p-6 flex flex-col justify-between">
-          <h1 className="text-red-900 c font-bold text-4xl mb-10">MRS</h1>
-          <nav>
-            <ul>
-              <li className="mb-1">
-                <Link to="/login" className="text-white text-lg">Home</Link>
-              </li>
-              <li className="mb-1">
-                <Link to="/login" className="text-white text-lg">Watchlist</Link>
-              </li>
-              <li className="mb-1">
-                <Link to="/login" className="text-white text-lg">Trending</Link>
-              </li>
-            </ul>
-          </nav>
+      <div style={backgroundStyle} className="min-h-screen flex overflow-hidden">
+        <aside className="h-screen fixed top-0 left-0 w-60 bg-gray-900 p-6 flex flex-col justify-between">
+          <div>
+            <h1 className="text-red-900 font-bold text-4xl mb-10">MRS</h1>
+            <nav>
+              <ul>
+                <li className="mb-4">
+                  <Link to="/" className="text-white text-lg">Home</Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/watchlist" className="text-white text-lg">Watchlist</Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/trending" className="text-white text-lg">Trending</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
           <div>
             <ul>
-              <li className="mb-4 mb-10">
+              <li className="mb-4">
                 <Link to="/login" className="text-white text-lg block">Login</Link>
               </li>
-              <li className="mb-11">
+              <li>
                 <Link to="/signup" className="text-white text-lg block">Signup</Link>
               </li>
             </ul>
           </div>
         </aside>
-        <main className="ml-64 p-10 mr-20 flex-grow flex flex-col justify-between">
+        <main className="ml-60 flex-grow flex flex-col justify-between p-10">
           <section className="mb-10 flex-grow">
             <div className="bg-black bg-opacity-50 p-6 rounded-lg h-full">
               <h2 className="text-3xl mb-4 text-white">
-               <br/> Movies &<br /> TV recommendations <br />based on your taste<br/>
+                Movies &<br /> TV recommendations <br />based on your taste<br/>
               </h2>
               <p className="text-lg text-white">
-               <br/> Find your next favorite show and stream for free
+                Find your next favorite show and stream for free
               </p>
             </div>
           </section>
-          <section className="bg-gray-900 bg-opacity-60 p-20 mb-20 h-full rounded-lg">
-            <h3 className="text-yellow-500 align-text-top text-2xl">Your personal streaming guide</h3>
+          <section className="bg-gray-900 bg-opacity-60 p-20 rounded-lg">
+            <h3 className="text-yellow-500 text-2xl">Your personal streaming guide</h3>
           </section>
         </main>
       </div>

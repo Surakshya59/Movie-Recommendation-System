@@ -12,7 +12,7 @@ const LoginPage = () => {
   const backgroundImageStyle = {
     backgroundImage: "url('../src/images/bgmain.jpg')",
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundPosition:'top',
     backgroundRepeat: 'no-repeat',
   };
 

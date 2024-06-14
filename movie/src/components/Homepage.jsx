@@ -18,13 +18,13 @@ const HomePage = () => {
             <nav>
               <ul>
                 <li className="mb-4 mt-1">
-                  <Link to="/login" className="text-white text-lg">Home</Link>
+                  <Link to="/watchlist" className="text-white text-lg">Home</Link>
                 </li>
                 <li className="mb-4">
-                  <Link to="/login" className="text-white text-lg">Watchlist</Link>
+                  <Link to="/watchlist" className="text-white text-lg">Watchlist</Link>
                 </li>
                 <li className="mb-10">
-                  <Link to="/login" className="text-white text-lg">Trending</Link>
+                  <Link to="/trending" className="text-white text-lg">Trending</Link>
                 </li>
               </ul>
             </nav>
