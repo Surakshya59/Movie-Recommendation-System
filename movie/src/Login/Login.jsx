@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
-
+import backgroundImage from "../images/bgmain.jpg";
 
 
   // const handleCloseAlert = () => {
@@ -21,6 +21,13 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'repeat',
+  };
+
   const handleCloseAlert = () => {
     setError('');
     setSuccess('');
@@ -28,12 +35,12 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setError('');
-    // setSuccess('');
+    setError('');
+    setSuccess('');
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
-        username,
+      const response = await axios.post('http://127.0.0.1:8000/api/account/user/login', {
+        email,
         password,
       });
 
@@ -41,28 +48,28 @@ const LoginPage = () => {
 
       if (response.status === 200 ) {
         localStorage.setItem('token', response.data.token);
-        // window.dispatchEvent(new Event('loginStateChanged'));
-       
-        // setSuccess('Login successful!');
-        
-          navigate('/home');
-     
+        window.dispatchEvent(new Event('loginStateChanged'));
+        setSuccess('Login successful!');
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
       } else {
         console.error('Unexpected response:', response);
-        // setError('Login failed. Please try again.');
+        setError('Login failed. Please try again.');
       }
     } catch (error) {
       console.error('Login error:', error);
-     
-        
+      if (error.response) {
+        console.error('Error response data:', error.response.data);
+        setError(error.response.data.detail || 'Login failed. Please try again.');
+      } else {
+        setError('Login failed. Please try again.');
       }
     }
-  
-
-
+  };
 
   return (
-    <div style={backgroundImageStyle} className="min-h-screen flex items-center justify-center text-white">
+    <div style={backgroundStyle} className="min-h-screen flex items-center justify-center text-white">
       <div className="bg-black bg-opacity-50 p-10 rounded-lg w-full max-w-lg">
         <div className='bg-black mb-6 p-2 rounded-sm w-full'>
           <h1 className="text-red-900 text-4xl p-3 font-bold text-center">Welcome to MRS</h1>

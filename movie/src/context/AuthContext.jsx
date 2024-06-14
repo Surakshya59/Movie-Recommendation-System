@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
@@ -10,8 +10,8 @@ export const AuthProvider = ({ children }) => {
   const login = () => {
     setAdminLoggedIn(true);
   };
-
   const logout = () => {
+    console.log('logout');
     setAdminLoggedIn(false);
   };
 

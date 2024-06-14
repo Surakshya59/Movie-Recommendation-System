@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const sidebar = () => {
   return (
     <div>
@@ -24,7 +25,8 @@ const sidebar = () => {
             <div>
                 <ul>
                   <li className="mb-4">
-                    <Link to="/login" className="text-white text-lg">Logout</Link>
+                    {/* <button onClick={logout} className="text-white text-lg">Logout</button> */}
+                    <Link to="/logout" className="text-white text-lg">Logout</Link>
                   </li>
             
                 </ul>

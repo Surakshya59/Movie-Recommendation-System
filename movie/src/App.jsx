@@ -5,10 +5,11 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import LandingPage from './Landing/Suru';
 import SignupPage from './Signup/Signup';
 import LoginPage from './Login/Login';
+import Logout from './logout/logout';
 import Contacts from './Navbar/Contact';
 import AboutUs from './Navbar/About';
 import Feedback from './Navbar/Feedback';
-import HomePage from './components/Homepage';
+import Homepage from './components/Homepage';
 import Watchlist from './components/Watchlist';
 import Trending from './components/Trending';
 import Footer from './Footer/Footer'; // Import the Footer component
@@ -38,9 +39,10 @@ const Main = () => {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/home" element={<HomePage /> } />
+          <Route path="/home" element={<Homepage /> } />
           <Route path="/watchlist" element={ <Watchlist />} />
           <Route path="/trending" element={ <Trending />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </div>
       <Footer /> 
