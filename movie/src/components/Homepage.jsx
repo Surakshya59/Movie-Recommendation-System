@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backgroundImage from "../images/bgmain.jpg";
+<<<<<<< HEAD
 import Slider from  "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+=======
+import Sidebar from './sidebar';
+>>>>>>> 3d27bf397809a14b2aa2fafa084b50b8821afbb5
 
 const HomePage = () => {
     const backgroundStyle = {
@@ -23,6 +27,10 @@ const HomePage = () => {
     
       return (
         <div style={backgroundStyle} className="min-h-screen flex flex-col">
+<<<<<<< HEAD
+=======
+          <Sidebar/>
+>>>>>>> 3d27bf397809a14b2aa2fafa084b50b8821afbb5
         <main className="ml-1/5 p-10 text-white w-full flex flex-col items-center">
           <div className="mb-10 w-full max-w-4xl">
             <h2 className="text-3xl mb-4 text-center">Recommended for you</h2>
