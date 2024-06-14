@@ -1,22 +1,37 @@
-import React from 'react'
+import React from 'react';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css"; 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const movieListpage = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        nextArrow: <div className="text-black">Next</div>,
-        prevArrow: <div className="text-black">Prev</div>,
-      };
+const MovieListpage = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4, // Adjusted slidesToShow for responsiveness
+    slidesToScroll: 1,
+    nextArrow: <div className="text-black">Next</div>,
+    prevArrow: <div className="text-black">Prev</div>,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }
+      }
+    ]
+  };
+
   return (
     <div>
-      <main className="ml-60 text-white w-full flex flex-col items-center">
-        <div className="mb-10 w-full max-w-7xl p-4">
+      <main className="fixed top-0 left-60 text-white w-full flex flex-col items-center">
+        <div className="mywidth mb-10 w-full max-w-7xl p-4 ">
           <h2 className="text-3xl mb-4 text-yellow-200">Recommended for you</h2>
           <Slider {...settings}>
             <div className="p-2">
@@ -39,12 +54,13 @@ const movieListpage = () => {
                 <img src="https://via.placeholder.com/150" alt="Avengers" className="w-full h-full object-cover" />
               </div>
             </div>
+            {/* Add more slides as needed */}
           </Slider>
         </div>
         <div className="mb-10 w-full max-w-7xl p-4">
           <h2 className="text-3xl mb-4 text-yellow-200">Popular</h2>
           <Slider {...settings}>
-          <div className="p-2">
+            <div className="p-2">
               <div className="w-48 h-72 bg-green-400 overflow-hidden">
                 <img src="https://via.placeholder.com/150" alt="Mage" className="w-full h-full object-cover" />
               </div>
@@ -64,11 +80,12 @@ const movieListpage = () => {
                 <img src="https://via.placeholder.com/150" alt="Avengers" className="w-full h-full object-cover" />
               </div>
             </div>
+            {/* Add more slides as needed */}
           </Slider>
         </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default movieListpage
+export default MovieListpage;
