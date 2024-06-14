@@ -1,4 +1,3 @@
-// src/components/HomePage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backgroundImage from "../images/bgmain.jpg";
@@ -18,19 +17,19 @@ const HomePage = () => {
             <nav>
               <ul>
                 <li className="mb-4 mt-1">
-                  <Link to="/watchlist" className="text-white text-lg">Home</Link>
+                  <Link to="/home" className="text-white text-lg">Home</Link>
                 </li>
                 <li className="mb-4">
                   <Link to="/watchlist" className="text-white text-lg">Watchlist</Link>
                 </li>
-                <li className="mb-10">
+                <li className="mb-4">
                   <Link to="/trending" className="text-white text-lg">Trending</Link>
                 </li>
               </ul>
             </nav>
             <div>
                 <ul>
-                  <li className="mb-4 mb-10">
+                  <li className="mb-4">
                     <Link to="/login" className="text-white text-lg block">Logout</Link>
                   </li>
             
