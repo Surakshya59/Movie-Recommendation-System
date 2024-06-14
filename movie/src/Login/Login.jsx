@@ -2,12 +2,24 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import axios from 'axios';
+
+
+
+  // const handleCloseAlert = () => {
+  //   setError('');
+  //   setSuccess('');
+  // };
+
+
 
 const LoginPage = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  // const [error, setError] = useState('');
+  // const [success, setSuccess] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   const backgroundImageStyle = {
     backgroundImage: "url('../src/images/bgmain.jpg')",
@@ -16,12 +28,40 @@ const LoginPage = () => {
     backgroundRepeat: 'no-repeat',
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your authentication logic here.
-    login(); // This will set the user as authenticated
-    navigate('/home'); // Navigate to home page after login
-  };
+    // setError('');
+    // setSuccess('');
+
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+        username,
+        password,
+      });
+
+      console.log('Server response:', response);
+
+      if (response.status === 200 ) {
+        localStorage.setItem('token', response.data.token);
+        // window.dispatchEvent(new Event('loginStateChanged'));
+       
+        // setSuccess('Login successful!');
+        
+          navigate('/home');
+     
+      } else {
+        console.error('Unexpected response:', response);
+        // setError('Login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+     
+        
+      }
+    }
+  
+
+
 
   return (
     <div style={backgroundImageStyle} className="min-h-screen flex items-center justify-center text-white">
@@ -35,8 +75,8 @@ const LoginPage = () => {
               type="username"
               placeholder="Username"
               className="w-full p-3 rounded bg-gray-800 bg-opacity-50 text-white"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <input
               type="password"
@@ -48,6 +88,7 @@ const LoginPage = () => {
           </div>
           <div className="flex justify-center">
             <button
+            onClick={handleSubmit}
               type="submit"
               className="w-full max-w-xs p-3 rounded bg-red-900 text-white font-bold hover:bg-red-900">
               Log In

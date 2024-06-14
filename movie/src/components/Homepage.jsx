@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backgroundImage from "../images/bgmain.jpg";
+import Slider from  "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HomePage = () => {
     const backgroundStyle = {
@@ -9,33 +12,17 @@ const HomePage = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'repeat',
       };
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 3
+      };
+    
     
       return (
         <div style={backgroundStyle} className="min-h-screen flex flex-col">
-          <aside className="h-screen fixed top-0 left-0 w-60 bg-gray-900 p-6 flex flex-col justify-between">
-            <h1 className="text-red-900 font-bold text-4xl ">MRS</h1>
-            <nav>
-              <ul>
-                <li className="mb-4 mt-1">
-                  <Link to="/home" className="text-white text-lg">Home</Link>
-                </li>
-                <li className="mb-4">
-                  <Link to="/watchlist" className="text-white text-lg">Watchlist</Link>
-                </li>
-                <li className="mb-4">
-                  <Link to="/trending" className="text-white text-lg">Trending</Link>
-                </li>
-              </ul>
-            </nav>
-            <div>
-                <ul>
-                  <li className="mb-4">
-                    <Link to="/login" className="text-white text-lg block">Logout</Link>
-                  </li>
-            
-                </ul>
-              </div>
-          </aside>
         <main className="ml-1/5 p-10 text-white w-full flex flex-col items-center">
           <div className="mb-10 w-full max-w-4xl">
             <h2 className="text-3xl mb-4 text-center">Recommended for you</h2>
@@ -45,14 +32,26 @@ const HomePage = () => {
               <img src="https://via.placeholder.com/150" alt="Black Panther" className="w-full" />
               <img src="https://via.placeholder.com/150" alt="Avengers" className="w-full" />
             </div>
+            <button>Click me 
+            
+            </button>
           </div>
           <div className="w-full max-w-4xl">
-            <h2 className="text-3xl mb-4">Popular</h2>
-            <div className="grid grid-cols-5 gap-6">
+            <h2 className="text-3xl mb-4">Populr</h2>
+            
+            <div className="flex">
+            <Slider {...settings}>
               <img src="https://via.placeholder.com/150" alt="Titanic" className="w-full" />
               <img src="https://via.placeholder.com/150" alt="Blade Runner" className="w-full" />
               <img src="https://via.placeholder.com/150" alt="127 Hours" className="w-full" />
               <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+              <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+              <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+              <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+              <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+              <img src="https://via.placeholder.com/150" alt="Metropolis" className="w-full" />
+
+              </Slider>
             </div>
           </div>
         </main>
